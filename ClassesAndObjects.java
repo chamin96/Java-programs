@@ -6,6 +6,9 @@ public class ClassesAndObjects{
 
         Phone p1 = new Phone();
         p1.showDetail();
+
+        Phone p2 = new Phone("Samsung","Note");
+        p2.showDetail();
     }
 }
 
@@ -25,6 +28,18 @@ class Dog{
 class Phone{
     String brand;
     String model;
+
+    //constructor
+    Phone(){
+        brand="Brand-X";
+        model="Model-X";
+    }
+
+    //constructor
+    Phone(String b, String m){
+        this.brand=b;
+        this.model=m;
+    }
 
     void showDetail(){
         System.out.println(brand);
