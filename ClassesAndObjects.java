@@ -9,6 +9,10 @@ public class ClassesAndObjects{
 
         Phone p2 = new Phone("Samsung","Note");
         p2.showDetail();
+
+        Handset h1 = new Handset("2GB");
+        h1.showDetail();
+        h1.showSpecs();
     }
 }
 
@@ -44,5 +48,17 @@ class Phone{
     void showDetail(){
         System.out.println(brand);
         System.out.println(model);
+    }
+}
+
+class Handset extends Phone{
+    String ram;
+
+    Handset(String r){
+        this.ram=r;
+    }
+
+    void showSpecs(){
+        System.out.println(ram);
     }
 }
