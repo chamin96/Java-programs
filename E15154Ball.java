@@ -35,10 +35,19 @@ class Ball{
         System.out.println(speedX);
         System.out.println(speedY);
 
-        double distanceX = speedX * (global_time-initial_time);
-        double distanceY = speedX * (global_time-initial_time);
+        double distanceX;
+        double distanceY;
+
+        distanceX = speedX * (global_time-b0.initial_time); 
+        distanceY = speedY * (global_time-b0.initial_time);
+
+        System.out.println(distanceX);
+        System.out.println(distanceY);
+
+
 
         System.out.println(b0.angleOfSpeedWithX==angleOfSpeedWithX);
+        //System.out.println(b0.);
     }
 
 }
@@ -47,17 +56,17 @@ class Ball{
 public class E15154Ball{
     public static void main(String[] args) {
         Ball b1 = new Ball(2, 4, 10, 0);
-        System.out.println(b1.x);
+        System.out.println(b1.speed);
         System.out.println(b1.angleOfSpeedWithX);
 
         System.out.println(Ball.global_time);
 
         Ball.updateTime(20);
 
-        Ball b2 = new Ball(3, 5, 40, 30);
-        System.out.println(Ball.global_time);
-        System.out.println(Ball.num_of_balls);
+        Ball b2 = new Ball(3, 5, 40, 60);
+        //System.out.println(Ball.global_time);
+        //System.out.println(Ball.num_of_balls);
 
-        b2.willCollide(b1);
+        b1.willCollide(b2);
     }
 }
