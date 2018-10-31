@@ -15,6 +15,7 @@ class Ball{
     double speedY;
     double distanceX;
     double distanceY;
+    String name;
 
     /*constructor*/ 
     Ball(double x, double y, double speed, double angleOfSpeedWithX){
@@ -25,6 +26,7 @@ class Ball{
         this.y=y;
         this.speed=speed;
         this.angleOfSpeedWithX=angleOfSpeedWithX;
+        this.name = "B"+ num_of_balls;
     }
 
     /*method to update time*/
@@ -57,14 +59,11 @@ class Ball{
         this.newX = this.x + distanceX; //current position
         this.newY = this.y + distanceY;
 
-
-        System.out.println(b0.newX);
-        System.out.println(b0.newY);
-        System.out.println(this.newX);
-        System.out.println(this.newY);
-
-        System.out.println(this.newX==b0.newX);
-        System.out.println(this.newY==b0.newY);
+        if (this.newX==b0.newX && this.newY==b0.newY){
+            System.out.println(b0.name+" and "+this.name+" will collide");
+        } else {
+            System.out.println(b0.name+" and "+this.name+" won't collide");
+        }
     
     }
 
@@ -73,17 +72,20 @@ class Ball{
 
 public class E15154Ball{
     public static void main(String[] args) {
-        Ball b1 = new Ball(2, 4, 10, 0);
+        Ball b1 = new Ball(0, 1, 10, 45);
         
+        Ball.updateTime(5);
+
+        Ball b2 = new Ball(0, 1, 20, 45);
+
+        Ball.updateTime(5);
+
+        b2.willCollide(b1);
+
+        Ball b3 = new Ball(-10, 5, 3, 30);
 
         Ball.updateTime(20);
 
-        Ball b2 = new Ball(2, 2, 30, 0);
-        //System.out.println(Ball.global_time);
-        //System.out.println(Ball.num_of_balls);
-
-        Ball.updateTime(10);
-
-        b2.willCollide(b1);
+        b3.willCollide(b2);
     }
 }
