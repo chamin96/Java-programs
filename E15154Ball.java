@@ -8,6 +8,13 @@ class Ball{
     double speed;
     double angleOfSpeedWithX;
     double initial_time;
+    double newX;
+    double newY;
+    double angleOfSpeed_inRadians;
+    double speedX;
+    double speedY;
+    double distanceX;
+    double distanceY;
 
     /*constructor*/ 
     Ball(double x, double y, double speed, double angleOfSpeedWithX){
@@ -27,27 +34,38 @@ class Ball{
 
     /*method to check collision*/
     protected void willCollide(Ball b0){
-        double angleOfSpeed_inRadians=Math.toRadians(b0.angleOfSpeedWithX); //convert degrees to radians
+        
+        b0.angleOfSpeed_inRadians=Math.toRadians(b0.angleOfSpeedWithX); //convert degrees to radians
+        this.angleOfSpeed_inRadians=Math.toRadians(this.angleOfSpeedWithX);
 
-        double speedX = b0.speed * Math.cos(angleOfSpeed_inRadians);
-        double speedY = b0.speed * Math.sin(angleOfSpeed_inRadians);
+        b0.speedX = b0.speed * Math.cos(angleOfSpeed_inRadians); //velocity along x-axis
+        b0.speedY = b0.speed * Math.sin(angleOfSpeed_inRadians); //velocity along y-axis
 
-        System.out.println(speedX);
-        System.out.println(speedY);
-
-        double distanceX;
-        double distanceY;
-
-        distanceX = speedX * (global_time-b0.initial_time); 
-        distanceY = speedY * (global_time-b0.initial_time);
-
-        System.out.println(distanceX);
-        System.out.println(distanceY);
+        this.speedX = this.speed * Math.cos(angleOfSpeed_inRadians); //velocity along x-axis
+        this.speedY = this.speed * Math.sin(angleOfSpeed_inRadians); //velocity along y-axis
 
 
+        b0.distanceX = speedX * (global_time-b0.initial_time);  //s=ut
+        b0.distanceY = speedY * (global_time-b0.initial_time);
 
-        System.out.println(b0.angleOfSpeedWithX==angleOfSpeedWithX);
-        //System.out.println(b0.);
+        this.distanceX = speedX * (global_time-this.initial_time);  //s=ut
+        this.distanceY = speedY * (global_time-this.initial_time);
+
+        b0.newX = b0.x + distanceX; //current position
+        b0.newY = b0.y + distanceY;
+
+        this.newX = this.x + distanceX; //current position
+        this.newY = this.y + distanceY;
+
+
+        System.out.println(b0.newX);
+        System.out.println(b0.newY);
+        System.out.println(this.newX);
+        System.out.println(this.newY);
+
+        System.out.println(this.newX==b0.newX);
+        System.out.println(this.newY==b0.newY);
+    
     }
 
 }
@@ -56,17 +74,16 @@ class Ball{
 public class E15154Ball{
     public static void main(String[] args) {
         Ball b1 = new Ball(2, 4, 10, 0);
-        System.out.println(b1.speed);
-        System.out.println(b1.angleOfSpeedWithX);
-
-        System.out.println(Ball.global_time);
+        
 
         Ball.updateTime(20);
 
-        Ball b2 = new Ball(3, 5, 40, 60);
+        Ball b2 = new Ball(2, 2, 30, 0);
         //System.out.println(Ball.global_time);
         //System.out.println(Ball.num_of_balls);
 
-        b1.willCollide(b2);
+        Ball.updateTime(10);
+
+        b2.willCollide(b1);
     }
 }
