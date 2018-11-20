@@ -1,7 +1,7 @@
 class Student{
-    static String name;
-    static int age;
-    static double gpa;
+    String name;
+    final int age;
+    double gpa;
 
     /*Student(){} //default constructor
 
@@ -12,10 +12,14 @@ class Student{
         gpa = g;
     }*/
 
-    static{
+    /*static{
         name = "Thor";
 
         System.out.println("Hello");
+    }*/
+
+    Student(){
+        age = 15;
     }
 
     void sleep(){
