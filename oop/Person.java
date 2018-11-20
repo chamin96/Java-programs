@@ -12,12 +12,12 @@ class Std extends Person{
 
     Std(String name){
         this.name = name;
-        age = age;
-        gpa = gpa;
     }
 
+    @Override
     void info(){
         System.out.println("student");
+        System.out.println("another");
     }
 }
 
