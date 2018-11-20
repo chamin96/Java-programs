@@ -12,7 +12,7 @@ public class Demo{
         
         
         Student std3 = new Student();
-        Student std4 = new Student();
+        Student std4 = new Student("George");
 
         std3.info();
         std4.info();
