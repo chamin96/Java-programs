@@ -5,17 +5,14 @@
 
 public class Demo{
 
-    static void method1(){
-        System.out.println("method1");
-    }
-
-    static int method1(int x){
-        System.out.println("overloaded");
-        return x;
-    }
-
     public static void main(String[] args) {
-        method1();
-        System.out.println(method1(5));
+        Person p =  new Person();
+
+        Std st1 = new Std("Nimal");
+    
+    
+        System.out.println(st1.name);
     }
+
+
 }
