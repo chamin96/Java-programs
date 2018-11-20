@@ -1,6 +1,10 @@
 class Person{
     String name;
     int age;
+
+    void info(){
+        System.out.println("person");
+    }
 }
 
 class Std extends Person{
@@ -11,8 +15,16 @@ class Std extends Person{
         age = age;
         gpa = gpa;
     }
+
+    void info(){
+        System.out.println("student");
+    }
 }
 
 class Lecturer extends Person{
     double salary;
+
+    void info(){
+        System.out.println("lecturer");
+    }
 }
