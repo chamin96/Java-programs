@@ -4,27 +4,18 @@
 */
 
 public class Demo{
-    public static void main(String[] args) {
-        /*Student std1 = new Student("Smith",22,2.6);  //creating objects
 
-        Student std2 = new Student("John",23,3.2);*/
-
-        
-        
-        Student std3 = new Student();
-        Student std4 = new Student("George");
-
-        std3.info();
-        std4.info();
+    static void method1(){
+        System.out.println("method1");
     }
-}
 
-class ExampleClass{
-    int x;
-    int y;
-    double c;
+    static int method1(int x){
+        System.out.println("overloaded");
+        return x;
+    }
 
-    void hello(){
-
+    public static void main(String[] args) {
+        method1();
+        System.out.println(method1(5));
     }
 }
