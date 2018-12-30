@@ -24,8 +24,12 @@ public static void main(String[] args){
 	Animal Tomy=new Animal(2,"Brown");
 	dispInfo(Tomy);
 
-	Animal Bonny = new Animal();
-	Animal Kitty = new Animal();
+	Animal Bonny = new Animal(4,"Copper");
+	dispInfo(Bonny);
+
+	Animal Kitty = new Animal(2,"Orange");
+	dispInfo(Kitty);
+	
 	Animal Simba = new Animal();
 	Animal Shabby = new Animal();
 }
